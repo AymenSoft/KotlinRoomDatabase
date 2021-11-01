@@ -31,7 +31,7 @@ class UsersAdapter(private val context: Context): BaseAdapter(), Filterable {
         return usersList.size
     }
 
-    override fun getItem(position: Int): Any {
+    override fun getItem(position: Int): Users {
         return usersList[position]
     }
 
@@ -80,7 +80,7 @@ class UsersAdapter(private val context: Context): BaseAdapter(), Filterable {
                 filterResult.count = result.size
                 return filterResult
             }
-
+            @Suppress("UNCHECKED_CAST")
             override fun publishResults(constraint: CharSequence?, results: FilterResults?) {
                 usersList = results!!.values as ArrayList<Users>
                 notifyDataSetChanged()

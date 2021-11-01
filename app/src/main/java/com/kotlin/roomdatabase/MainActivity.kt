@@ -47,12 +47,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         lvData.setOnItemClickListener { _, _, position, _ ->
-            user = usersAdapter.getItem(position) as Users
+            user = usersAdapter.getItem(position)
             etName.setText(user!!.userName)
         }
 
         lvData.setOnItemLongClickListener { _, _, position, _ ->
-            val user = usersAdapter.getItem(position) as Users
+            val user = usersAdapter.getItem(position)
             viewModel.delete(user)
             return@setOnItemLongClickListener (true)
         }
